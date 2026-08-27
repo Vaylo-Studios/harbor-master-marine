@@ -1,4 +1,8 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Reveal from "@/components/Reveal";
 
 const BADGES = [
@@ -20,18 +24,27 @@ const BADGES = [
 ];
 
 export default function About() {
+  const photoRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: photoRef,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["-4%", "4%"]);
+
   return (
     <section id="about" className="bg-navy py-28 relative overflow-hidden">
-      <div className="relative mx-auto max-w-6xl px-6 grid lg:grid-cols-2 gap-16 items-center">
+      <div className="relative mx-auto max-w-6xl px-6 grid lg:grid-cols-[1.15fr_1fr] gap-16 items-center">
         <Reveal>
-          <div className="aspect-[4/5] rounded-2xl border border-white/10 relative overflow-hidden">
-            <Image
-              src="/images/about-technician.png"
-              alt="Harbor Master Marine technician servicing an outboard engine at the dock"
-              fill
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover"
-            />
+          <div ref={photoRef} className="aspect-[4/5] lg:aspect-[3/4] rounded-2xl border border-white/10 relative overflow-hidden">
+            <motion.div style={{ y }} className="absolute inset-[-6%]">
+              <Image
+                src="/images/about-technician.png"
+                alt="Harbor Master Marine technician servicing an outboard engine at the dock"
+                fill
+                sizes="(min-width: 1024px) 55vw, 100vw"
+                className="object-cover"
+              />
+            </motion.div>
             <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/50 via-transparent to-transparent" />
           </div>
         </Reveal>
@@ -54,10 +67,10 @@ export default function About() {
             no guesswork.
           </p>
 
-          <div className="grid sm:grid-cols-3 gap-6 mt-10 pt-8 border-t border-white/10">
+          <div className="mt-10 pt-8 border-t border-white/10 divide-y divide-white/10">
             {BADGES.map((b) => (
-              <div key={b.label}>
-                <div className="w-11 h-11 rounded-full border border-brass-light/40 flex items-center justify-center mb-3">
+              <div key={b.label} className="flex items-start gap-4 py-4 first:pt-0 last:pb-0">
+                <div className="w-11 h-11 shrink-0 rounded-full border border-brass-light/40 flex items-center justify-center">
                   <svg
                     width="20"
                     height="20"
@@ -73,10 +86,12 @@ export default function About() {
                     {b.icon}
                   </svg>
                 </div>
-                <div className="text-white text-sm font-medium">{b.label}</div>
-                <p className="text-white/50 text-xs leading-relaxed mt-1">
-                  {b.detail}
-                </p>
+                <div>
+                  <div className="text-white text-sm font-medium">{b.label}</div>
+                  <p className="text-white/50 text-xs leading-relaxed mt-1">
+                    {b.detail}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

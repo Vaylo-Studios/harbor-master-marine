@@ -1,4 +1,4 @@
-import Logo from "@/components/Logo";
+import { LogoFull } from "@/components/Logo";
 
 const SOCIALS = [
   {
@@ -32,54 +32,61 @@ const SOCIALS = [
 export default function Footer() {
   return (
     <footer className="bg-navy-deep text-white/60 border-t border-white/10">
-      <div className="mx-auto max-w-6xl px-6 py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-        <div className="flex items-start gap-3 max-w-sm">
-          <Logo className="w-9 h-9 text-gulf-light shrink-0 mt-0.5" />
-          <div>
-            <div className="font-display text-white text-base tracking-wide">
-              HARBOR MASTER MARINE
-            </div>
-            <p className="text-sm mt-2">
-              Full-service boat repair and maintenance, based in Dunedin,
-              serving Pinellas County.
-            </p>
+      <div className="mx-auto max-w-6xl px-6 py-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
+        <div className="max-w-sm">
+          <LogoFull className="h-24 -ml-1 mb-4" />
+          <p className="text-sm leading-relaxed">
+            Full-service boat repair and maintenance, based in Dunedin,
+            serving Pinellas County.
+          </p>
+        </div>
+
+        <div>
+          <div className="text-xs uppercase tracking-[0.2em] text-white/35 mb-4">
+            Contact
+          </div>
+          <div className="text-sm space-y-2.5">
+            <div>Dunedin, FL</div>
+            <a href="tel:+17277762316" className="hover:text-white transition-colors block">
+              (727) 776-2316
+            </a>
+            <a
+              href="mailto:service@harbormastermarine.com"
+              className="hover:text-white transition-colors block"
+            >
+              service@harbormastermarine.com
+            </a>
           </div>
         </div>
-        <div className="text-sm space-y-1">
-          <div>Dunedin, FL</div>
-          <a href="tel:+17275550147" className="hover:text-white transition-colors block">
-            (727) 555-0147
-          </a>
-          <a
-            href="mailto:service@harbormastermarine.com"
-            className="hover:text-white transition-colors block"
-          >
-            service@harbormastermarine.com
-          </a>
-        </div>
-        <div className="flex items-center gap-3">
-          {SOCIALS.map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              aria-label={s.label}
-              className="w-9 h-9 rounded-full border border-white/15 hover:border-white/40 hover:text-white flex items-center justify-center transition-colors"
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
+
+        <div>
+          <div className="text-xs uppercase tracking-[0.2em] text-white/35 mb-4">
+            Follow Us
+          </div>
+          <div className="flex items-center gap-3">
+            {SOCIALS.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                aria-label={s.label}
+                className="w-9 h-9 rounded-full border border-white/15 hover:border-brass-light/60 hover:text-white flex items-center justify-center transition-colors"
               >
-                {s.icon}
-              </svg>
-            </a>
-          ))}
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  {s.icon}
+                </svg>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
       <div className="border-t border-white/10">

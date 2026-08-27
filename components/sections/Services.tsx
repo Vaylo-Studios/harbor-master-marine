@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Reveal from "@/components/Reveal";
 
 const SERVICES = [
@@ -37,8 +40,23 @@ const SERVICES = [
 
 export default function Services() {
   return (
-    <section id="services" className="bg-background py-28">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="services" className="relative bg-background py-28 overflow-hidden">
+      <svg
+        className="absolute inset-0 w-full h-full opacity-[0.05] pointer-events-none"
+        aria-hidden="true"
+      >
+        <pattern id="services-contour" width="120" height="120" patternUnits="userSpaceOnUse">
+          <path
+            d="M-10 60c20-25 40-25 60 0s40 25 60 0M-10 10c20-25 40-25 60 0s40 25 60 0M-10 110c20-25 40-25 60 0s40 25 60 0"
+            fill="none"
+            stroke="var(--color-gulf)"
+            strokeWidth="1"
+          />
+        </pattern>
+        <rect width="100%" height="100%" fill="url(#services-contour)" />
+      </svg>
+
+      <div className="relative mx-auto max-w-6xl px-6">
         <Reveal>
           <p className="text-gulf text-sm uppercase tracking-[0.2em] mb-3">
             What We Do
@@ -51,28 +69,50 @@ export default function Services() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
           {SERVICES.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.05}>
-              <div className="h-full rounded-2xl bg-surface border border-border hover:border-border-hover transition-colors p-7">
-                <svg
-                  width="26"
-                  height="26"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-brass mb-5"
-                  aria-hidden="true"
-                >
-                  {s.icon}
-                </svg>
+              <motion.div
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                className="group h-full rounded-2xl bg-surface border border-border hover:border-gulf/40 hover:shadow-[0_16px_40px_-16px_rgba(59,107,234,0.25)] transition-[border-color,box-shadow] duration-300 p-8"
+              >
+                <div className="w-14 h-14 rounded-xl bg-gulf/10 flex items-center justify-center mb-6 group-hover:bg-gulf/15 transition-colors">
+                  <svg
+                    width="26"
+                    height="26"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-gulf"
+                    aria-hidden="true"
+                  >
+                    {s.icon}
+                  </svg>
+                </div>
                 <h3 className="font-display text-xl text-text-primary mb-2">
                   {s.title}
                 </h3>
-                <p className="text-text-secondary text-sm leading-relaxed">
+                <p className="text-text-secondary text-sm leading-relaxed mb-6">
                   {s.desc}
                 </p>
-              </div>
+                <div className="w-9 h-9 rounded-full border border-border group-hover:border-gulf group-hover:bg-gulf flex items-center justify-center transition-colors duration-300">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-text-muted group-hover:text-white group-hover:translate-x-0.5 transition-all duration-300"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </div>
+              </motion.div>
             </Reveal>
           ))}
         </div>

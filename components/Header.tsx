@@ -40,13 +40,13 @@ export default function Header() {
     >
       <div className="mx-auto max-w-6xl px-6 flex items-center justify-between h-18 py-4">
         <a href="#top" className="flex items-center gap-3">
-          <Logo className="w-9 h-9 text-gulf-light shrink-0" />
+          <Logo className="h-8 shrink-0" />
           <span className="flex flex-col leading-none">
             <span className="font-display text-lg tracking-wide text-white">
-              HARBOR MASTER
+              HARBOR MASTER MARINE
             </span>
             <span className="text-xs uppercase tracking-[0.2em] text-brass-light mt-0.5">
-              Marine
+              Marine Electrical Repair
             </span>
           </span>
         </a>
@@ -63,7 +63,7 @@ export default function Header() {
         </nav>
         <div className="flex items-center gap-3">
           <a
-            href="tel:+17275550147"
+            href="tel:+17277762316"
             className="hidden sm:inline-block rounded-lg bg-brass hover:bg-brass-light text-white text-sm font-medium px-5 py-3 transition-colors"
           >
             Call for Service
@@ -113,7 +113,7 @@ export default function Header() {
             </a>
           ))}
           <a
-            href="tel:+17275550147"
+            href="tel:+17277762316"
             onClick={() => setMenuOpen(false)}
             className="mt-4 text-center rounded-lg bg-brass hover:bg-brass-light text-white text-sm font-medium px-5 py-3.5 transition-colors"
           >

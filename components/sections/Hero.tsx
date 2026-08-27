@@ -19,7 +19,7 @@ export default function Hero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[70%_50%]"
+          className="object-cover object-[78%_50%] contrast-[1.15] saturate-[1.12] brightness-[0.92]"
         />
       ) : (
         <video
@@ -28,7 +28,7 @@ export default function Hero() {
           loop
           playsInline
           poster="/images/hero-boat.png"
-          className="absolute inset-0 w-full h-full object-cover object-[70%_50%]"
+          className="absolute inset-0 w-full h-full object-cover object-[78%_50%] contrast-[1.15] saturate-[1.12] brightness-[0.92]"
         >
           <source src="/videos/hero-boat.mp4" type="video/mp4" />
         </video>
@@ -37,10 +37,20 @@ export default function Hero() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(90deg, #071722 0%, rgba(7,23,34,0.88) 32%, rgba(7,23,34,0.35) 60%, transparent 85%), linear-gradient(180deg, rgba(7,23,34,0.55) 0%, transparent 30%, transparent 60%, #071722 100%)",
+            "linear-gradient(90deg, #071722 0%, #071722 22%, rgba(7,23,34,0.92) 40%, rgba(7,23,34,0.5) 62%, rgba(7,23,34,0.12) 82%, transparent 100%), linear-gradient(180deg, rgba(7,23,34,0.6) 0%, transparent 26%, transparent 55%, #071722 100%)",
         }}
       />
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-navy-deep to-transparent" />
+      <svg
+        className="absolute bottom-0 left-0 right-0 w-full h-20 sm:h-28"
+        viewBox="0 0 1440 120"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M0 48c120 32 240 44 360 40s232-28 360-32 240 20 360 28 232 16 360-4V120H0Z"
+          fill="var(--color-background)"
+        />
+      </svg>
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 pb-24 pt-40 w-full">
         <motion.p
@@ -85,33 +95,37 @@ export default function Hero() {
             </svg>
           </a>
           <a
-            href="tel:+17275550147"
+            href="tel:+17277762316"
             className="rounded-lg border border-white/25 text-white hover:border-white/50 font-medium px-7 py-3.5 transition-colors"
           >
-            (727) 555-0147
+            (727) 776-2316
           </a>
         </motion.div>
 
-        <div className="grid grid-cols-3 gap-8 mt-20 max-w-lg border-t border-white/10 pt-8">
-          <div>
-            <div className="font-display text-white text-3xl">15+</div>
-            <div className="text-white/50 text-xs uppercase tracking-wide mt-1">
-              Years on the water
+        <motion.div
+          initial={initial ?? { opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          className="grid grid-cols-3 mt-20 max-w-lg rounded-2xl bg-white/8 backdrop-blur-md border border-white/15 divide-x divide-white/10 overflow-hidden"
+        >
+          {[
+            { icon: <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z" />, value: "15+", label: "Years on the water" },
+            { icon: <path d="M3 17h2l2-5h10l2 5h2M6 12l2-6h8l2 6M8 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM16 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" />, value: "1,200+", label: "Boats serviced" },
+            { icon: <path d="M12 7v5l3.5 2M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z" />, value: "Same-week", label: "Most repairs" },
+          ].map((stat) => (
+            <div key={stat.label} className="flex items-center gap-3 px-5 py-5">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-brass-light shrink-0" aria-hidden="true">
+                {stat.icon}
+              </svg>
+              <div>
+                <div className="font-display text-white text-xl leading-none">{stat.value}</div>
+                <div className="text-white/50 text-[11px] uppercase tracking-wide mt-1.5">
+                  {stat.label}
+                </div>
+              </div>
             </div>
-          </div>
-          <div>
-            <div className="font-display text-white text-3xl">1,200+</div>
-            <div className="text-white/50 text-xs uppercase tracking-wide mt-1">
-              Boats serviced
-            </div>
-          </div>
-          <div>
-            <div className="font-display text-white text-3xl">Same-week</div>
-            <div className="text-white/50 text-xs uppercase tracking-wide mt-1">
-              Most repairs
-            </div>
-          </div>
-        </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
