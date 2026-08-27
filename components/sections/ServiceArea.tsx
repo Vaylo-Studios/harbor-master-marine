@@ -48,9 +48,9 @@ export default function ServiceArea() {
               </MaskReveal>
             </h2>
             <p className="text-text-secondary leading-relaxed mb-8 max-w-md">
-              Based in Dunedin, we service marinas, docks, and boatyards
-              throughout the county. Mobile diagnostics available for
-              select repairs.
+              Based in Dunedin, we come to marinas, docks, and boatyards
+              throughout the county. Every repair is done on-site, at
+              your boat.
             </p>
             <div className="flex flex-wrap gap-2.5">
               {CITIES.map((city) => (

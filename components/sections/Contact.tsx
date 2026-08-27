@@ -35,8 +35,8 @@ export default function Contact() {
             Tell us what&apos;s wrong. We&apos;ll tell you what it takes.
           </h2>
           <p className="text-white/70 text-lg mb-10 max-w-xl mx-auto">
-            Call or drop by the shop in Dunedin. Straight answers, no
-            guesswork.
+            Call to schedule mobile electrical service anywhere in Dunedin
+            and Pinellas County. Straight answers, no guesswork.
           </p>
         </Reveal>
         <Reveal delay={0.1}>
@@ -59,7 +59,7 @@ export default function Contact() {
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
               className="rounded-lg border border-white/25 hover:bg-white/10 text-white font-medium text-xl px-11 py-6 transition-[background-color,border-color,box-shadow] duration-300 hover:border-white/50 hover:shadow-[0_0_26px_-6px_rgba(255,255,255,0.4)]"
             >
-              Get Directions
+              Service Area
             </motion.a>
           </div>
         </Reveal>

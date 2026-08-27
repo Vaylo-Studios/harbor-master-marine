@@ -14,9 +14,9 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Harbor Master Marine | Boat Repair, Dunedin & Pinellas County",
+  title: "Harbor Master Marine | Mobile Marine Electrical Repair, Dunedin & Pinellas County",
   description:
-    "Full-service boat repair and marine maintenance serving Dunedin and Pinellas County. Engine service, hull repair, electrical, and haul-outs from a crew that knows the water.",
+    "Mobile 12-volt marine electrical repair serving Dunedin and Pinellas County. Wiring, batteries, starters, GPS, and marine electronics, diagnosed and fixed at your dock.",
   robots: {
     index: false,
     follow: false,

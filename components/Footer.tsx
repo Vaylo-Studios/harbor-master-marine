@@ -36,7 +36,7 @@ export default function Footer() {
         <div className="max-w-sm">
           <LogoFull className="h-[150px] -mt-6 sm:h-[190px] sm:-mt-8 lg:h-[215px] lg:-mt-9 -ml-1 mb-2" />
           <p className="text-base leading-relaxed">
-            Full-service boat repair and maintenance, based in Dunedin,
+            Mobile 12-volt marine electrical repair, based in Dunedin,
             serving Pinellas County.
           </p>
         </div>

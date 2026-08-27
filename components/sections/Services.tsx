@@ -6,36 +6,34 @@ import MaskReveal from "@/components/MaskReveal";
 
 const SERVICES = [
   {
-    title: "Engine Service & Repair",
-    desc: "Inboard, outboard, and sterndrive diagnostics, tune-ups, and full rebuilds. Both gas and diesel.",
-    icon: (
-      <path d="M12 8v-2M12 18v-2M8 12H6M18 12h-2M9.5 9.5 8 8M16 16l-1.5-1.5M9.5 14.5 8 16M16 8l-1.5 1.5M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-    ),
-  },
-  {
-    title: "Hull & Fiberglass Repair",
-    desc: "Gelcoat, structural, and cosmetic repair. Blister treatment and bottom refinishing.",
-    icon: <path d="M4 16c1.5 1.3 3 1.3 4.5 0s3-1.3 4.5 0 3 1.3 4.5 0M4 12c1.5 1.3 3 1.3 4.5 0s3-1.3 4.5 0 3 1.3 4.5 0M6 8l10-4 2 4" />,
-  },
-  {
-    title: "Electrical & Electronics",
-    desc: "Wiring, battery systems, navigation electronics, and troubleshooting for anything that won't turn on.",
+    title: "Wiring & Troubleshooting",
+    desc: "Loose grounds, low voltage, corroded and tangled wires, diagnosed and repaired right on the boat.",
     icon: <path d="M13 3 5 13h5l-1 8 8-10h-5l1-8Z" />,
   },
   {
-    title: "Haul-Out & Bottom Painting",
-    desc: "Full-service haul-outs, pressure washing, bottom paint, and running gear inspection.",
-    icon: <path d="M12 4v10M8 10l4 4 4-4M5 20c1-2 3-3 7-3s6 1 7 3" />,
+    title: "GPS & Marine Radio",
+    desc: "VHF and HF radio installs, GPS units, and antenna work, wired right the first time.",
+    icon: <path d="M12 21v-7M8 16c1-1 2.5-1.5 4-1.5s3 .5 4 1.5M6 12.5c1.7-1.7 3.8-2.5 6-2.5s4.3.8 6 2.5M4 9c2.2-2.2 5-3.3 8-3.3S17.8 6.8 20 9M12 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" />,
   },
   {
-    title: "Rigging & Systems",
-    desc: "Steering, controls, plumbing, and onboard systems, kept tight and reliable.",
-    icon: <path d="M14.7 6.3a3 3 0 0 0-4.24 4.24L4 17l1 1 3.5-3.5 1.24 1.24a3 3 0 0 0 4.24-4.24l1.5-1.5-1.28-1.28-1.5 1.58Z" />,
+    title: "Stereo & Audio",
+    desc: "Marine stereo systems installed and wired clean, built to hold up on the water.",
+    icon: <path d="M5 9h3l5-4v14l-5-4H5V9Z M16 9a4 4 0 0 1 0 6" />,
   },
   {
-    title: "Pre-Purchase Inspections",
-    desc: "Buying a boat? Get a full mechanical and structural inspection before you sign.",
-    icon: <path d="M9 11l2 2 4-4M5 5h14v14H5V5Z" />,
+    title: "Batteries, Switches & Starters",
+    desc: "Battery switch replacement, starter and alternator repair, the failures that strand boaters.",
+    icon: <path d="M4 10h13v6H4z M17 12h2v2h-2z M8 10v6M12 10v6" />,
+  },
+  {
+    title: "Bilge Pumps & Washdown",
+    desc: "Installation and wiring for bilge pumps, washdown units, and other 12-volt equipment.",
+    icon: <path d="M4 16c1.5 1.3 3 1.3 4.5 0s3-1.3 4.5 0 3 1.3 4.5 0M4 12c1.5 1.3 3 1.3 4.5 0s3-1.3 4.5 0 3 1.3 4.5 0M12 3v7" />,
+  },
+  {
+    title: "Lighting & Accessories",
+    desc: "Spreader lights and other battery-powered accessories, installed clean and wired to last.",
+    icon: <path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3 11.2c.6.4 1 1.1 1 1.8h4c0-.7.4-1.4 1-1.8A6 6 0 0 0 12 3Z" />,
   },
 ];
 
@@ -74,7 +72,7 @@ export default function Services() {
           <MaskReveal>What We Do</MaskReveal>
         </p>
         <h2 className="font-display text-4xl sm:text-5xl text-text-primary max-w-xl">
-          <MaskReveal delay={0.05}>Full-service marine repair, under one roof.</MaskReveal>
+          <MaskReveal delay={0.05}>Mobile 12-volt electrical repair, done right.</MaskReveal>
         </h2>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">

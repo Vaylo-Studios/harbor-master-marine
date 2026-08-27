@@ -8,8 +8,8 @@ import MaskReveal from "@/components/MaskReveal";
 
 const BADGES = [
   {
-    label: "Local Technicians",
-    detail: "Hands-on marine electrical and battery work from a crew that boats these waters too.",
+    label: "We Come To You",
+    detail: "Mobile service at your dock or marina, wherever your boat is in Pinellas County.",
     icon: <path d="M12 3l7 3v5c0 4.4-3 8.4-7 9.5-4-1.1-7-5.1-7-9.5V6l7-3Z" />,
   },
   {
@@ -51,7 +51,7 @@ export default function About() {
             <motion.div style={{ y }} className="absolute inset-[-6%]">
               <Image
                 src="/images/about-technician.png"
-                alt="Harbor Master Marine technician servicing an outboard engine at the dock"
+                alt="Harbor Master Marine technician working on a boat's electrical system at the dock"
                 fill
                 sizes="(min-width: 1024px) 45vw, 100vw"
                 className="object-cover"
@@ -68,15 +68,15 @@ export default function About() {
             <MaskReveal delay={0.05}>Local hands, real accountability.</MaskReveal>
           </h2>
           <p className="text-white/70 text-lg leading-relaxed mb-4">
-            Harbor Master Marine keeps boats in Dunedin and the surrounding
-            Pinellas County waters running right. We&apos;re not a
-            franchise, we&apos;re a crew of marine technicians who live and
-            boat here too.
+            Harbor Master Marine is Josh Pennino, fixing 12-volt electrical
+            systems on boats across Dunedin and Pinellas County. Not a
+            full-service shop, a specialist who comes to your boat and
+            treats it like his own.
           </p>
           <p className="text-white/70 text-lg leading-relaxed">
-            Every job gets a straight diagnosis, a real timeline, and a
-            technician who explains what&apos;s actually wrong, no upsells,
-            no guesswork.
+            Every job gets a straight diagnosis and an honest read on
+            what&apos;s actually wrong, no rushing to replace parts that
+            don&apos;t need it, no guesswork.
           </p>
 
           <div className="mt-12 pt-9 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-y-8 sm:gap-y-0 divide-y sm:divide-y-0 sm:divide-x divide-white/10">

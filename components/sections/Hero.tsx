@@ -78,7 +78,7 @@ export default function Hero() {
           Dunedin &middot; Pinellas County
         </motion.p>
         <h1 className="font-display text-white text-5xl sm:text-6xl lg:text-7xl leading-[1.05] max-w-3xl">
-          <MaskReveal delay={0.1}>Marine repair that runs like the tide, on time, every time.</MaskReveal>
+          <MaskReveal delay={0.1}>Marine electrical repair, right at your dock.</MaskReveal>
         </h1>
         <motion.p
           initial={initial ?? { opacity: 0, y: 18 }}
@@ -86,9 +86,9 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.25 }}
           className="text-white/70 text-lg mt-7 max-w-xl"
         >
-          Engine service, hull repair, electrical, and haul-outs from a crew
-          that&apos;s worked these waters for years. Your boat, back on the
-          water, done right.
+          Wiring, batteries, starters, and marine electronics, diagnosed and
+          fixed on your boat. No hauling to a shop, no guesswork, no
+          upsells.
         </motion.p>
         <motion.div
           initial={initial ?? { opacity: 0, y: 18 }}
