@@ -1,46 +1,15 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import Image from "next/image";
-import { motion, useInView, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import MaskReveal from "@/components/MaskReveal";
 
-const STATS = [
-  { icon: <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z" />, value: "Dunedin, FL", label: "Proudly local" },
-  { icon: <path d="M13 3 5 13h5l-1 8 8-10h-5l1-8Z" />, value: "Electrical & Batteries", label: "Our specialty" },
-  { icon: <path d="M12 21s-7-6.1-7-11a7 7 0 1 1 14 0c0 4.9-7 11-7 11ZM12 13a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />, value: "1160 Idlewild Dr N", label: "Find us" },
+const INFO = [
+  { icon: <path d="M13 3 5 13h5l-1 8 8-10h-5l1-8Z" />, value: "Electrical & Battery Specialists", label: "What we do" },
+  { icon: <path d="M12 21s-7-6.1-7-11a7 7 0 1 1 14 0c0 4.9-7 11-7 11ZM12 13a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />, value: "1160 Idlewild Dr N, Dunedin", label: "Find us" },
+  { icon: <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8.1 9.7a16 16 0 0 0 6.2 6.2l1.2-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z" />, value: "(727) 776-2316", label: "Call the shop" },
 ];
-
-function StatValue({ value }: { value: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-  const match = value.match(/^([\d,]+)(\+?)$/);
-  const [display, setDisplay] = useState(match ? "0" : value);
-
-  useEffect(() => {
-    if (!match || !inView) return;
-    const target = parseInt(match[1].replace(/,/g, ""), 10);
-    const suffix = match[2];
-    const duration = 1300;
-    const start = performance.now();
-    let raf: number;
-    const tick = (now: number) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setDisplay(Math.round(target * eased).toLocaleString() + suffix);
-      if (progress < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [inView]);
-
-  return (
-    <div ref={ref} className="font-display text-white text-3xl sm:text-4xl leading-none">
-      {display}
-    </div>
-  );
-}
 
 export default function Hero() {
   const reduceMotion = useReducedMotion();
@@ -154,17 +123,19 @@ export default function Hero() {
           initial={initial ?? { opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
-          className="grid grid-cols-3 mt-20 w-full lg:w-[88%] rounded-2xl bg-white/8 backdrop-blur-md border border-white/15 divide-x divide-white/10 overflow-hidden"
+          className="grid grid-cols-1 sm:grid-cols-3 mt-20 w-full lg:w-[88%] rounded-2xl bg-white/8 backdrop-blur-md border border-white/15 divide-y sm:divide-y-0 sm:divide-x divide-white/10 overflow-hidden"
         >
-          {STATS.map((stat) => (
-            <div key={stat.label} className="flex items-center gap-4 px-6 sm:px-8 py-7">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-brass-light shrink-0" aria-hidden="true">
-                {stat.icon}
+          {INFO.map((item) => (
+            <div key={item.label} className="flex items-center gap-4 px-6 sm:px-8 py-6">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-brass-light shrink-0" aria-hidden="true">
+                {item.icon}
               </svg>
               <div>
-                <StatValue value={stat.value} />
-                <div className="text-white/50 text-xs uppercase tracking-wide mt-1.5">
-                  {stat.label}
+                <div className="font-display text-white text-lg leading-snug">
+                  {item.value}
+                </div>
+                <div className="text-white/50 text-xs uppercase tracking-wide mt-1">
+                  {item.label}
                 </div>
               </div>
             </div>
