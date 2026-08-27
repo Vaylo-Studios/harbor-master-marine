@@ -64,7 +64,7 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <a
             href="tel:+17275550147"
-            className="hidden sm:inline-block rounded-full bg-brass hover:bg-brass-light text-navy-deep text-sm font-medium px-5 py-3 transition-colors"
+            className="hidden sm:inline-block rounded-lg bg-brass hover:bg-brass-light text-white text-sm font-medium px-5 py-3 transition-colors"
           >
             Call for Service
           </a>
@@ -115,7 +115,7 @@ export default function Header() {
           <a
             href="tel:+17275550147"
             onClick={() => setMenuOpen(false)}
-            className="mt-4 text-center rounded-full bg-brass hover:bg-brass-light text-navy-deep text-sm font-medium px-5 py-3.5 transition-colors"
+            className="mt-4 text-center rounded-lg bg-brass hover:bg-brass-light text-white text-sm font-medium px-5 py-3.5 transition-colors"
           >
             Call for Service
           </a>

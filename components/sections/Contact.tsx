@@ -17,13 +17,13 @@ export default function Contact() {
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
               href="tel:+17275550147"
-              className="rounded-full bg-brass hover:bg-brass-light text-navy-deep font-medium px-8 py-4 transition-colors"
+              className="rounded-lg bg-brass hover:bg-brass-light text-white font-medium px-8 py-4 transition-colors"
             >
               Call (727) 555-0147
             </a>
             <a
               href="mailto:service@harbormastermarine.com"
-              className="rounded-full border border-white/25 text-white hover:border-white/50 font-medium px-8 py-4 transition-colors"
+              className="rounded-lg border border-white/25 text-white hover:border-white/50 font-medium px-8 py-4 transition-colors"
             >
               Email the Shop
             </a>

@@ -64,13 +64,16 @@ export default function Hero() {
         >
           <a
             href="#contact"
-            className="rounded-full bg-brass hover:bg-brass-light text-navy-deep font-medium px-7 py-3.5 transition-colors"
+            className="inline-flex items-center gap-2 rounded-lg bg-brass hover:bg-brass-light text-white font-medium px-7 py-3.5 transition-colors"
           >
             Get a Repair Estimate
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
           </a>
           <a
             href="tel:+17275550147"
-            className="rounded-full border border-white/25 text-white hover:border-white/50 font-medium px-7 py-3.5 transition-colors"
+            className="rounded-lg border border-white/25 text-white hover:border-white/50 font-medium px-7 py-3.5 transition-colors"
           >
             (727) 555-0147
           </a>
