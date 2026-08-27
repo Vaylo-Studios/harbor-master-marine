@@ -40,7 +40,7 @@ export default function Header() {
     >
       <div className="mx-auto max-w-6xl px-6 flex items-center justify-between h-18 py-4">
         <a href="#top" className="flex items-center gap-3">
-          <Logo className="h-8 shrink-0" />
+          <Logo className="h-10 shrink-0" />
           <span className="flex flex-col leading-none">
             <span className="font-display text-lg tracking-wide text-white">
               HARBOR MASTER MARINE

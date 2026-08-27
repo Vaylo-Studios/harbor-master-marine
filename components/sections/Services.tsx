@@ -41,7 +41,7 @@ const SERVICES = [
 
 export default function Services() {
   return (
-    <section id="services" className="relative bg-background pt-24 pb-16 overflow-hidden">
+    <section id="services" className="relative bg-background pt-20 pb-14 overflow-hidden">
       <svg
         className="absolute inset-0 w-full h-full opacity-[0.05] pointer-events-none"
         aria-hidden="true"
@@ -77,18 +77,22 @@ export default function Services() {
           <MaskReveal delay={0.05}>Full-service marine repair, under one roof.</MaskReveal>
         </h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
           {SERVICES.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.05}>
               <motion.div
-                whileHover={{ y: -5 }}
+                whileHover={{ y: -7 }}
                 transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                className="group h-full rounded-2xl bg-surface border border-border hover:border-gulf/40 hover:shadow-[0_20px_48px_-16px_rgba(59,107,234,0.28)] transition-[border-color,box-shadow] duration-300 p-8 sm:p-9"
+                className="group h-full rounded-2xl bg-surface border border-border hover:border-gulf/50 hover:shadow-[0_24px_56px_-16px_rgba(59,107,234,0.32)] transition-[border-color,box-shadow] duration-300 p-8 sm:p-9"
               >
-                <div className="w-[74px] h-[74px] rounded-xl bg-gulf/10 flex items-center justify-center mb-7 group-hover:bg-gulf/15 group-hover:shadow-[0_0_24px_-4px_rgba(59,107,234,0.5)] transition-all duration-300">
+                <motion.div
+                  whileHover={{ scale: 1.08, rotate: -4 }}
+                  transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                  className="w-[84px] h-[84px] rounded-xl bg-gulf/10 flex items-center justify-center mb-7 group-hover:bg-gulf/15 group-hover:shadow-[0_0_28px_-4px_rgba(59,107,234,0.55)] transition-[background-color,box-shadow] duration-300"
+                >
                   <svg
-                    width="36"
-                    height="36"
+                    width="41"
+                    height="41"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -100,24 +104,24 @@ export default function Services() {
                   >
                     {s.icon}
                   </svg>
-                </div>
+                </motion.div>
                 <h3 className="font-display text-xl sm:text-2xl text-text-primary mb-3">
                   {s.title}
                 </h3>
                 <p className="text-text-secondary text-sm leading-relaxed mb-7">
                   {s.desc}
                 </p>
-                <div className="w-10 h-10 rounded-full border border-border group-hover:border-gulf group-hover:bg-gulf flex items-center justify-center transition-colors duration-300">
+                <div className="w-11 h-11 rounded-full border-[1.5px] border-border group-hover:border-gulf group-hover:bg-gulf flex items-center justify-center transition-colors duration-300">
                   <svg
-                    width="15"
-                    height="15"
+                    width="16"
+                    height="16"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="text-text-muted group-hover:text-white group-hover:translate-x-0.5 transition-all duration-300"
+                    className="text-text-secondary group-hover:text-white group-hover:translate-x-0.5 transition-all duration-300"
                     aria-hidden="true"
                   >
                     <path d="M5 12h14M13 6l6 6-6 6" />

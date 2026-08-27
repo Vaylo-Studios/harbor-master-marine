@@ -8,7 +8,7 @@ export default function Contact() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section id="contact" className="relative py-36 border-t border-white/10 overflow-hidden bg-navy-deep">
+    <section id="contact" className="relative pt-28 pb-40 border-t border-white/10 overflow-hidden bg-navy-deep">
       <motion.div
         animate={reduceMotion ? undefined : { scale: [1, 1.03, 1] }}
         transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
@@ -26,12 +26,12 @@ export default function Contact() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(50% 60% at 50% 42%, rgba(7,23,34,0.97) 0%, rgba(7,23,34,0.8) 38%, rgba(7,23,34,0.34) 66%, rgba(7,23,34,0.12) 100%), linear-gradient(180deg, rgba(7,23,34,0.35) 0%, transparent 22%, transparent 78%, rgba(7,23,34,0.5) 100%)",
+            "radial-gradient(46% 56% at 50% 40%, rgba(7,23,34,0.99) 0%, rgba(7,23,34,0.9) 34%, rgba(7,23,34,0.4) 64%, rgba(7,23,34,0.12) 100%), linear-gradient(180deg, rgba(7,23,34,0.35) 0%, transparent 22%, transparent 78%, rgba(7,23,34,0.5) 100%)",
         }}
       />
-      <div className="relative mx-auto max-w-3xl px-6 text-center">
+      <div className="relative mx-auto max-w-2xl px-6 text-center">
         <Reveal>
-          <h2 className="font-display text-5xl sm:text-7xl text-white mb-6 leading-[1.05]">
+          <h2 className="font-display text-6xl sm:text-8xl text-white mb-6 leading-[1.02]">
             Tell us what&apos;s wrong. We&apos;ll tell you what it takes.
           </h2>
           <p className="text-white/70 text-lg mb-10 max-w-xl mx-auto">
@@ -41,18 +41,24 @@ export default function Contact() {
         </Reveal>
         <Reveal delay={0.1}>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <a
+            <motion.a
               href="tel:+17277762316"
-              className="rounded-lg bg-brass hover:bg-brass-light text-white font-medium text-xl px-11 py-6 transition-all duration-300 hover:shadow-[0_0_32px_-4px_rgba(59,107,234,0.7)]"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              className="rounded-lg bg-brass hover:bg-brass-light text-white font-medium text-xl px-11 py-6 transition-[background-color,box-shadow] duration-300 hover:shadow-[0_0_36px_-4px_rgba(59,107,234,0.75)]"
             >
               Call (727) 776-2316
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               href="mailto:service@harbormastermarine.com"
-              className="rounded-lg border border-white/25 text-white font-medium text-xl px-11 py-6 transition-all duration-300 hover:border-white/50 hover:shadow-[0_0_24px_-6px_rgba(255,255,255,0.35)]"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              className="rounded-lg border border-white/25 hover:bg-white/10 text-white font-medium text-xl px-11 py-6 transition-[background-color,border-color,box-shadow] duration-300 hover:border-white/50 hover:shadow-[0_0_26px_-6px_rgba(255,255,255,0.4)]"
             >
               Email the Shop
-            </a>
+            </motion.a>
           </div>
         </Reveal>
       </div>

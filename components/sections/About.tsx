@@ -33,15 +33,15 @@ export default function About() {
   const y = useTransform(scrollYProgress, [0, 1], ["-4%", "4%"]);
 
   return (
-    <section id="about" className="bg-navy pt-28 pb-20 relative overflow-hidden">
+    <section id="about" className="bg-navy pt-20 pb-14 relative overflow-hidden">
       <svg
-        className="absolute bottom-0 left-0 right-0 w-full h-10 sm:h-14"
+        className="absolute bottom-0 left-0 right-0 w-full h-8 sm:h-11"
         viewBox="0 0 1440 100"
         preserveAspectRatio="none"
         aria-hidden="true"
       >
         <path
-          d="M0 70c180-10 320-14 440-8s220 16 360 14 260-10 380-6 140 8 260 4V100H0Z"
+          d="M0 78c180-6 320-9 440-5s220 10 360 9 260-6 380-4 140 5 260 2V100H0Z"
           fill="var(--color-background)"
         />
       </svg>
@@ -64,7 +64,7 @@ export default function About() {
           <p className="text-brass-light text-sm uppercase tracking-[0.2em] mb-3">
             <MaskReveal>Who We Are</MaskReveal>
           </p>
-          <h2 className="font-display text-5xl sm:text-6xl text-white mb-6 leading-[1.05]">
+          <h2 className="font-display text-6xl sm:text-7xl text-white mb-6 leading-[1.02]">
             <MaskReveal delay={0.05}>Local hands, real accountability.</MaskReveal>
           </h2>
           <p className="text-white/70 text-lg leading-relaxed mb-4">
@@ -79,7 +79,7 @@ export default function About() {
             no guesswork.
           </p>
 
-          <div className="mt-10 pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+          <div className="mt-12 pt-9 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-y-8 sm:gap-y-0 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
             {BADGES.map((b, i) => (
               <motion.div
                 key={b.label}
@@ -87,12 +87,12 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.55, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
-                className="py-6 sm:py-0 sm:px-6 first:sm:pl-0 last:sm:pr-0"
+                className="py-6 sm:py-0 sm:px-8 first:sm:pl-0 last:sm:pr-0"
               >
-                <div className="w-16 h-16 rounded-full border border-brass-light/40 flex items-center justify-center mb-4">
+                <div className="w-[76px] h-[76px] rounded-full border border-brass-light/40 flex items-center justify-center mb-5">
                   <svg
-                    width="30"
-                    height="30"
+                    width="36"
+                    height="36"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -105,8 +105,8 @@ export default function About() {
                     {b.icon}
                   </svg>
                 </div>
-                <div className="text-white text-base font-medium">{b.label}</div>
-                <p className="text-white/50 text-sm leading-relaxed mt-2">
+                <div className="text-white text-lg font-medium">{b.label}</div>
+                <p className="text-white/50 text-[0.94rem] leading-relaxed mt-2.5">
                   {b.detail}
                 </p>
               </motion.div>

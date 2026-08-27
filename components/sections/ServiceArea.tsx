@@ -24,31 +24,35 @@ export default function ServiceArea() {
   return (
     <section id="area" className="relative bg-background py-20 overflow-hidden">
       <svg
-        className="absolute bottom-0 left-0 right-0 w-full h-10 sm:h-14"
+        className="absolute bottom-0 left-0 right-0 w-full h-8 sm:h-11"
         viewBox="0 0 1440 100"
         preserveAspectRatio="none"
         aria-hidden="true"
       >
         <path
-          d="M0 66c180-8 320-12 440-6s220 14 360 12 260-8 380-4 140 6 260 2V100H0Z"
+          d="M0 74c180-6 320-9 440-4.5s220 10.5 360 9 260-6 380-3 140 4.5 260 1.5V100H0Z"
           fill="var(--color-navy-deep)"
         />
       </svg>
       <div className="relative mx-auto max-w-6xl px-6">
-        <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-20 items-center">
+        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-14 lg:gap-20 items-center">
           <Reveal>
             <p className="text-gulf text-sm uppercase tracking-[0.2em] mb-3">
               <MaskReveal>Where We Work</MaskReveal>
             </p>
-            <h2 className="font-display text-5xl sm:text-6xl text-text-primary mb-6 leading-[1.05]">
-              <MaskReveal delay={0.05}>Serving boaters across Pinellas County.</MaskReveal>
+            <h2 className="font-display text-4xl sm:text-5xl text-text-primary mb-6 leading-[1.1] whitespace-nowrap">
+              <MaskReveal delay={0.05}>
+                Serving boaters across
+                <br />
+                Pinellas County.
+              </MaskReveal>
             </h2>
             <p className="text-text-secondary leading-relaxed mb-8 max-w-md">
               Based in Dunedin, we service marinas, docks, and boatyards
               throughout the county. Mobile diagnostics available for
               select repairs.
             </p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2.5">
               {CITIES.map((city) => (
                 <button
                   key={city.name}
@@ -57,7 +61,7 @@ export default function ServiceArea() {
                   onMouseLeave={() => setActive(null)}
                   onFocus={() => setActive(city.name)}
                   onBlur={() => setActive(null)}
-                  className={`text-sm rounded-full px-4 py-1.5 border transition-colors flex items-center gap-1.5 ${
+                  className={`text-sm rounded-full px-[18px] py-2.5 border transition-colors flex items-center gap-2 ${
                     city.home
                       ? "bg-gulf border-gulf text-white"
                       : active === city.name
@@ -77,7 +81,7 @@ export default function ServiceArea() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="aspect-square rounded-2xl border border-border relative overflow-hidden bg-navy-deep lg:-mr-16 xl:-mr-32 lg:scale-[1.08] lg:origin-left">
+            <div className="aspect-square rounded-[28px] border border-border relative overflow-hidden bg-navy-deep lg:-mr-20 xl:-mr-36 lg:scale-[1.1] lg:origin-left shadow-[0_32px_64px_-24px_rgba(11,34,51,0.45)]">
               <Image
                 src="/images/service-area-map.png"
                 alt="Nautical map of Pinellas County service area, hubbed from Dunedin"
@@ -94,6 +98,38 @@ export default function ServiceArea() {
                 }}
               />
 
+              <svg
+                className="absolute inset-0 w-full h-full pointer-events-none"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                {CITIES.filter((c) => !c.home).map((city) => {
+                  const home = CITIES.find((c) => c.home)!;
+                  const isActive = active === city.name;
+                  return (
+                    <motion.line
+                      key={`route-${city.name}`}
+                      x1={home.x}
+                      y1={home.y}
+                      x2={city.x}
+                      y2={city.y}
+                      stroke="var(--color-gulf-light)"
+                      strokeWidth="0.3"
+                      strokeLinecap="round"
+                      strokeDasharray="1.4 1.2"
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      animate={
+                        isActive
+                          ? { pathLength: 1, opacity: 0.85 }
+                          : { pathLength: 0, opacity: 0 }
+                      }
+                      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                    />
+                  );
+                })}
+              </svg>
+
               {CITIES.map((city) => (
                 <div
                   key={`${city.name}-base`}
@@ -103,8 +139,11 @@ export default function ServiceArea() {
                   {city.home ? (
                     <>
                       <motion.div
-                        animate={{ scale: [1, 1.9, 1], opacity: [0.55, 0, 0.55] }}
-                        transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+                        animate={{
+                          scale: active === city.name ? [1, 2.4, 1] : [1, 1.9, 1],
+                          opacity: active === city.name ? [0.75, 0, 0.75] : [0.55, 0, 0.55],
+                        }}
+                        transition={{ duration: active === city.name ? 1.6 : 3.2, repeat: Infinity, ease: "easeInOut" }}
                         className="absolute inset-0 m-auto w-4 h-4 rounded-full bg-gulf-light/50"
                       />
                       <div className="w-4 h-4 rounded-full bg-white shadow-[0_0_18px_5px_rgba(109,149,245,0.85)] border-2 border-gulf" />

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion, useInView, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import MaskReveal from "@/components/MaskReveal";
 
 const STATS = [
   { icon: <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z" />, value: "15+", label: "Years on the water" },
@@ -104,28 +105,23 @@ export default function Hero() {
         />
       </svg>
 
-      <div className="relative z-10 mx-auto max-w-6xl px-6 pb-16 pt-24 w-full">
+      <div className="relative z-10 mx-auto max-w-6xl px-6 pb-20 pt-28 w-full">
         <motion.p
           initial={initial ?? { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-brass-light text-sm uppercase tracking-[0.25em] mb-6"
+          className="text-brass-light text-sm uppercase tracking-[0.25em] mb-7"
         >
           Dunedin &middot; Pinellas County
         </motion.p>
-        <motion.h1
-          initial={initial ?? { opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="font-display text-white text-5xl sm:text-6xl lg:text-7xl leading-[1.05] max-w-3xl"
-        >
-          Marine repair that runs like the tide, on time, every time.
-        </motion.h1>
+        <h1 className="font-display text-white text-5xl sm:text-6xl lg:text-7xl leading-[1.05] max-w-3xl">
+          <MaskReveal delay={0.1}>Marine repair that runs like the tide, on time, every time.</MaskReveal>
+        </h1>
         <motion.p
           initial={initial ?? { opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-white/70 text-lg mt-6 max-w-xl"
+          transition={{ duration: 0.7, delay: 0.25 }}
+          className="text-white/70 text-lg mt-7 max-w-xl"
         >
           Engine service, hull repair, electrical, and haul-outs from a crew
           that&apos;s worked these waters for years. Your boat, back on the
@@ -134,8 +130,8 @@ export default function Hero() {
         <motion.div
           initial={initial ?? { opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="flex flex-wrap items-center gap-4 mt-10"
+          transition={{ duration: 0.7, delay: 0.35 }}
+          className="flex flex-wrap items-center gap-4 mt-12"
         >
           <a
             href="#contact"
