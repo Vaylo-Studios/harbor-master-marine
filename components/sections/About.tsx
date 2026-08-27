@@ -46,7 +46,7 @@ export default function About() {
         />
       </svg>
       <div className="relative mx-auto max-w-6xl px-6 grid lg:grid-cols-[3fr_4fr] gap-16 items-center">
-        <Reveal>
+        <Reveal className="min-w-0">
           <div ref={photoRef} className="aspect-[4/5] lg:aspect-[3/4] lg:scale-[1.1] lg:origin-left rounded-2xl border border-white/10 relative overflow-hidden">
             <motion.div style={{ y }} className="absolute inset-[-6%]">
               <Image
@@ -60,11 +60,11 @@ export default function About() {
             <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/50 via-transparent to-transparent" />
           </div>
         </Reveal>
-        <Reveal delay={0.1}>
+        <Reveal delay={0.1} className="min-w-0">
           <p className="text-brass-light text-sm uppercase tracking-[0.2em] mb-3">
             <MaskReveal>Who We Are</MaskReveal>
           </p>
-          <h2 className="font-display text-6xl sm:text-7xl text-white mb-6 leading-[1.02]">
+          <h2 className="font-display text-6xl sm:text-7xl text-white mb-6 leading-[1.02] break-words">
             <MaskReveal delay={0.05}>Local hands, real accountability.</MaskReveal>
           </h2>
           <p className="text-white/70 text-lg leading-relaxed mb-4">
