@@ -59,7 +59,7 @@ export default function Hero() {
     >
       <motion.div
         style={reduceMotion ? undefined : { y: mediaY }}
-        className="absolute inset-0 scale-[1.12]"
+        className="absolute inset-0 scale-[1.22]"
       >
         {reduceMotion ? (
           <Image
@@ -158,7 +158,7 @@ export default function Hero() {
           initial={initial ?? { opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
-          className="grid grid-cols-3 mt-16 w-full lg:w-[75%] rounded-2xl bg-white/8 backdrop-blur-md border border-white/15 divide-x divide-white/10 overflow-hidden"
+          className="grid grid-cols-3 mt-20 w-full lg:w-[88%] rounded-2xl bg-white/8 backdrop-blur-md border border-white/15 divide-x divide-white/10 overflow-hidden"
         >
           {STATS.map((stat) => (
             <div key={stat.label} className="flex items-center gap-4 px-6 sm:px-8 py-7">

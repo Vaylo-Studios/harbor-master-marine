@@ -33,21 +33,21 @@ export default function About() {
   const y = useTransform(scrollYProgress, [0, 1], ["-4%", "4%"]);
 
   return (
-    <section id="about" className="bg-navy py-28 relative overflow-hidden">
+    <section id="about" className="bg-navy pt-28 pb-20 relative overflow-hidden">
       <svg
-        className="absolute bottom-0 left-0 right-0 w-full h-16 sm:h-24"
+        className="absolute bottom-0 left-0 right-0 w-full h-10 sm:h-14"
         viewBox="0 0 1440 100"
         preserveAspectRatio="none"
         aria-hidden="true"
       >
         <path
-          d="M0 56c140-24 260-32 380-20s240 30 360 26 260-22 380-14 240 22 300 10V100H0Z"
+          d="M0 70c180-10 320-14 440-8s220 16 360 14 260-10 380-6 140 8 260 4V100H0Z"
           fill="var(--color-background)"
         />
       </svg>
       <div className="relative mx-auto max-w-6xl px-6 grid lg:grid-cols-[3fr_4fr] gap-16 items-center">
         <Reveal>
-          <div ref={photoRef} className="aspect-[4/5] lg:aspect-[3/4] rounded-2xl border border-white/10 relative overflow-hidden">
+          <div ref={photoRef} className="aspect-[4/5] lg:aspect-[3/4] lg:scale-[1.1] lg:origin-left rounded-2xl border border-white/10 relative overflow-hidden">
             <motion.div style={{ y }} className="absolute inset-[-6%]">
               <Image
                 src="/images/about-technician.png"
@@ -64,16 +64,16 @@ export default function About() {
           <p className="text-brass-light text-sm uppercase tracking-[0.2em] mb-3">
             <MaskReveal>Who We Are</MaskReveal>
           </p>
-          <h2 className="font-display text-4xl sm:text-5xl text-white mb-6">
+          <h2 className="font-display text-5xl sm:text-6xl text-white mb-6 leading-[1.05]">
             <MaskReveal delay={0.05}>Local hands, real accountability.</MaskReveal>
           </h2>
-          <p className="text-white/70 leading-relaxed mb-4">
+          <p className="text-white/70 text-lg leading-relaxed mb-4">
             Harbor Master Marine has been keeping boats in Dunedin and the
             surrounding Pinellas County waters running right for over 15
             years. We&apos;re not a franchise, we&apos;re a crew of
             certified marine technicians who live and boat here too.
           </p>
-          <p className="text-white/70 leading-relaxed">
+          <p className="text-white/70 text-lg leading-relaxed">
             Every job gets a straight diagnosis, a real timeline, and a
             technician who explains what&apos;s actually wrong, no upsells,
             no guesswork.
@@ -87,12 +87,12 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.55, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
-                className="py-5 sm:py-0 sm:px-6 first:sm:pl-0 last:sm:pr-0"
+                className="py-6 sm:py-0 sm:px-6 first:sm:pl-0 last:sm:pr-0"
               >
-                <div className="w-14 h-14 rounded-full border border-brass-light/40 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 rounded-full border border-brass-light/40 flex items-center justify-center mb-4">
                   <svg
-                    width="26"
-                    height="26"
+                    width="30"
+                    height="30"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -105,8 +105,8 @@ export default function About() {
                     {b.icon}
                   </svg>
                 </div>
-                <div className="text-white text-sm font-medium">{b.label}</div>
-                <p className="text-white/50 text-xs leading-relaxed mt-2">
+                <div className="text-white text-base font-medium">{b.label}</div>
+                <p className="text-white/50 text-sm leading-relaxed mt-2">
                   {b.detail}
                 </p>
               </motion.div>

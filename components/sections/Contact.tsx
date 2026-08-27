@@ -26,12 +26,12 @@ export default function Contact() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(55% 65% at 50% 42%, rgba(7,23,34,0.92) 0%, rgba(7,23,34,0.72) 40%, rgba(7,23,34,0.32) 68%, rgba(7,23,34,0.12) 100%), linear-gradient(180deg, rgba(7,23,34,0.35) 0%, transparent 22%, transparent 78%, rgba(7,23,34,0.5) 100%)",
+            "radial-gradient(50% 60% at 50% 42%, rgba(7,23,34,0.97) 0%, rgba(7,23,34,0.8) 38%, rgba(7,23,34,0.34) 66%, rgba(7,23,34,0.12) 100%), linear-gradient(180deg, rgba(7,23,34,0.35) 0%, transparent 22%, transparent 78%, rgba(7,23,34,0.5) 100%)",
         }}
       />
       <div className="relative mx-auto max-w-3xl px-6 text-center">
         <Reveal>
-          <h2 className="font-display text-4xl sm:text-6xl text-white mb-6 leading-[1.08]">
+          <h2 className="font-display text-5xl sm:text-7xl text-white mb-6 leading-[1.05]">
             Tell us what&apos;s wrong. We&apos;ll tell you what it takes.
           </h2>
           <p className="text-white/70 text-lg mb-10 max-w-xl mx-auto">
@@ -43,13 +43,13 @@ export default function Contact() {
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
               href="tel:+17277762316"
-              className="rounded-lg bg-brass hover:bg-brass-light text-white font-medium text-lg px-10 py-5 transition-all duration-300 hover:shadow-[0_0_32px_-4px_rgba(59,107,234,0.7)]"
+              className="rounded-lg bg-brass hover:bg-brass-light text-white font-medium text-xl px-11 py-6 transition-all duration-300 hover:shadow-[0_0_32px_-4px_rgba(59,107,234,0.7)]"
             >
               Call (727) 776-2316
             </a>
             <a
               href="mailto:service@harbormastermarine.com"
-              className="rounded-lg border border-white/25 text-white font-medium text-lg px-10 py-5 transition-all duration-300 hover:border-white/50 hover:shadow-[0_0_24px_-6px_rgba(255,255,255,0.35)]"
+              className="rounded-lg border border-white/25 text-white font-medium text-xl px-11 py-6 transition-all duration-300 hover:border-white/50 hover:shadow-[0_0_24px_-6px_rgba(255,255,255,0.35)]"
             >
               Email the Shop
             </a>

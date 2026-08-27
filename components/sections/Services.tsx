@@ -41,7 +41,7 @@ const SERVICES = [
 
 export default function Services() {
   return (
-    <section id="services" className="relative bg-background pt-28 pb-[92px] overflow-hidden">
+    <section id="services" className="relative bg-background pt-24 pb-16 overflow-hidden">
       <svg
         className="absolute inset-0 w-full h-full opacity-[0.05] pointer-events-none"
         aria-hidden="true"
@@ -69,7 +69,7 @@ export default function Services() {
         />
       </svg>
 
-      <div className="relative mx-auto max-w-6xl px-6">
+      <div className="relative mx-auto max-w-7xl px-6">
         <p className="text-gulf text-sm uppercase tracking-[0.2em] mb-3">
           <MaskReveal>What We Do</MaskReveal>
         </p>
@@ -77,18 +77,18 @@ export default function Services() {
           <MaskReveal delay={0.05}>Full-service marine repair, under one roof.</MaskReveal>
         </h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
           {SERVICES.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.05}>
               <motion.div
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                className="group h-full rounded-2xl bg-surface border border-border hover:border-gulf/40 hover:shadow-[0_20px_48px_-16px_rgba(59,107,234,0.28)] transition-[border-color,box-shadow] duration-300 p-9 sm:p-10"
+                className="group h-full rounded-2xl bg-surface border border-border hover:border-gulf/40 hover:shadow-[0_20px_48px_-16px_rgba(59,107,234,0.28)] transition-[border-color,box-shadow] duration-300 p-8 sm:p-9"
               >
-                <div className="w-16 h-16 rounded-xl bg-gulf/10 flex items-center justify-center mb-7 group-hover:bg-gulf/15 group-hover:shadow-[0_0_24px_-4px_rgba(59,107,234,0.5)] transition-all duration-300">
+                <div className="w-[74px] h-[74px] rounded-xl bg-gulf/10 flex items-center justify-center mb-7 group-hover:bg-gulf/15 group-hover:shadow-[0_0_24px_-4px_rgba(59,107,234,0.5)] transition-all duration-300">
                   <svg
-                    width="30"
-                    height="30"
+                    width="36"
+                    height="36"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"

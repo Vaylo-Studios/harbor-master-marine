@@ -32,20 +32,20 @@ const SOCIALS = [
 export default function Footer() {
   return (
     <footer className="bg-navy-deep text-white/60 border-t border-white/10">
-      <div className="mx-auto max-w-6xl px-6 py-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr] lg:divide-x lg:divide-white/10">
+      <div className="mx-auto max-w-6xl px-6 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr] lg:divide-x lg:divide-white/10">
         <div className="max-w-sm">
-          <LogoFull className="h-[115px] -ml-1 mb-4" />
-          <p className="text-sm leading-relaxed">
+          <LogoFull className="h-[172px] -ml-1 -my-6 mb-0" />
+          <p className="text-base leading-relaxed">
             Full-service boat repair and maintenance, based in Dunedin,
             serving Pinellas County.
           </p>
         </div>
 
         <div className="lg:pl-10">
-          <div className="text-xs uppercase tracking-[0.2em] text-white/35 mb-4">
+          <div className="text-sm uppercase tracking-[0.2em] text-white/35 mb-4">
             Contact
           </div>
-          <div className="text-base space-y-3">
+          <div className="text-lg space-y-3">
             <div className="text-white/80">Dunedin, FL</div>
             <a href="tel:+17277762316" className="text-white/80 hover:text-white transition-colors block font-medium">
               (727) 776-2316
@@ -60,7 +60,7 @@ export default function Footer() {
         </div>
 
         <div className="lg:pl-10">
-          <div className="text-xs uppercase tracking-[0.2em] text-white/35 mb-4">
+          <div className="text-sm uppercase tracking-[0.2em] text-white/35 mb-4">
             Follow Us
           </div>
           <div className="flex items-center gap-3">
@@ -69,11 +69,11 @@ export default function Footer() {
                 key={s.label}
                 href={s.href}
                 aria-label={s.label}
-                className="w-9 h-9 rounded-full border border-white/15 hover:border-brass-light/60 hover:text-white flex items-center justify-center transition-colors"
+                className="w-11 h-11 rounded-full border border-white/15 hover:border-brass-light/60 hover:text-white flex items-center justify-center transition-colors"
               >
                 <svg
-                  width="16"
-                  height="16"
+                  width="19"
+                  height="19"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -90,7 +90,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-6xl px-6 py-5 text-xs flex flex-col sm:flex-row justify-between gap-2">
+        <div className="mx-auto max-w-6xl px-6 py-4 text-sm flex flex-col sm:flex-row justify-between gap-2">
           <span>&copy; {new Date().getFullYear()} Harbor Master Marine. All rights reserved.</span>
           <span>Site by Vaylo Studios</span>
         </div>

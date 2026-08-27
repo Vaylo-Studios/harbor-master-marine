@@ -24,23 +24,23 @@ export default function ServiceArea() {
   return (
     <section id="area" className="relative bg-background py-20 overflow-hidden">
       <svg
-        className="absolute bottom-0 left-0 right-0 w-full h-16 sm:h-24"
+        className="absolute bottom-0 left-0 right-0 w-full h-10 sm:h-14"
         viewBox="0 0 1440 100"
         preserveAspectRatio="none"
         aria-hidden="true"
       >
         <path
-          d="M0 52c150-26 270-34 390-22s240 30 360 26 260-22 380-14 240 22 300 10V100H0Z"
+          d="M0 66c180-8 320-12 440-6s220 14 360 12 260-8 380-4 140 6 260 2V100H0Z"
           fill="var(--color-navy-deep)"
         />
       </svg>
       <div className="relative mx-auto max-w-6xl px-6">
-        <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-16 items-center">
+        <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-20 items-center">
           <Reveal>
             <p className="text-gulf text-sm uppercase tracking-[0.2em] mb-3">
               <MaskReveal>Where We Work</MaskReveal>
             </p>
-            <h2 className="font-display text-4xl sm:text-5xl text-text-primary mb-6">
+            <h2 className="font-display text-5xl sm:text-6xl text-text-primary mb-6 leading-[1.05]">
               <MaskReveal delay={0.05}>Serving boaters across Pinellas County.</MaskReveal>
             </h2>
             <p className="text-text-secondary leading-relaxed mb-8 max-w-md">
@@ -77,7 +77,7 @@ export default function ServiceArea() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="aspect-square rounded-2xl border border-border relative overflow-hidden bg-navy-deep lg:-mr-10 xl:-mr-24 lg:scale-[1.08] lg:origin-left">
+            <div className="aspect-square rounded-2xl border border-border relative overflow-hidden bg-navy-deep lg:-mr-16 xl:-mr-32 lg:scale-[1.08] lg:origin-left">
               <Image
                 src="/images/service-area-map.png"
                 alt="Nautical map of Pinellas County service area, hubbed from Dunedin"
