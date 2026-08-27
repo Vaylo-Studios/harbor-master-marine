@@ -36,7 +36,7 @@ export default function ServiceArea() {
       </svg>
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-14 lg:gap-20 items-center">
-          <Reveal>
+          <Reveal className="min-w-0">
             <p className="text-gulf text-sm uppercase tracking-[0.2em] mb-3">
               <MaskReveal>Where We Work</MaskReveal>
             </p>
@@ -80,7 +80,7 @@ export default function ServiceArea() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.1}>
+          <Reveal delay={0.1} className="min-w-0">
             <div className="aspect-square rounded-[28px] border border-border relative overflow-hidden bg-navy-deep lg:-mr-20 xl:-mr-36 lg:scale-[1.1] lg:origin-left shadow-[0_32px_64px_-24px_rgba(11,34,51,0.45)]">
               <Image
                 src="/images/service-area-map.png"

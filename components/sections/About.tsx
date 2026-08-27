@@ -64,7 +64,7 @@ export default function About() {
           <p className="text-brass-light text-sm uppercase tracking-[0.2em] mb-3">
             <MaskReveal>Who We Are</MaskReveal>
           </p>
-          <h2 className="font-display text-6xl sm:text-7xl text-white mb-6 leading-[1.02] break-words">
+          <h2 className="font-display text-4xl sm:text-6xl lg:text-7xl text-white mb-6 leading-[1.05] sm:leading-[1.02] break-words">
             <MaskReveal delay={0.05}>Local hands, real accountability.</MaskReveal>
           </h2>
           <p className="text-white/70 text-lg leading-relaxed mb-4">
