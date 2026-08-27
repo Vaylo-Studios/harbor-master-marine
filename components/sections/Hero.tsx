@@ -5,12 +5,6 @@ import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import MaskReveal from "@/components/MaskReveal";
 
-const INFO = [
-  { icon: <path d="M13 3 5 13h5l-1 8 8-10h-5l1-8Z" />, value: "Electrical & Battery Specialists", label: "What we do" },
-  { icon: <path d="M12 21s-7-6.1-7-11a7 7 0 1 1 14 0c0 4.9-7 11-7 11ZM12 13a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />, value: "1160 Idlewild Dr N, Dunedin", label: "Find us" },
-  { icon: <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8.1 9.7a16 16 0 0 0 6.2 6.2l1.2-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z" />, value: "(727) 776-2316", label: "Call the shop" },
-];
-
 export default function Hero() {
   const reduceMotion = useReducedMotion();
   const initial = reduceMotion ? false : undefined;
@@ -117,29 +111,6 @@ export default function Hero() {
           >
             (727) 776-2316
           </a>
-        </motion.div>
-
-        <motion.div
-          initial={initial ?? { opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="grid grid-cols-1 sm:grid-cols-3 mt-20 w-full lg:w-[88%] rounded-2xl bg-white/8 backdrop-blur-md border border-white/15 divide-y sm:divide-y-0 sm:divide-x divide-white/10 overflow-hidden"
-        >
-          {INFO.map((item) => (
-            <div key={item.label} className="flex items-center gap-4 px-6 sm:px-8 py-6">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-brass-light shrink-0" aria-hidden="true">
-                {item.icon}
-              </svg>
-              <div>
-                <div className="font-display text-white text-lg leading-snug">
-                  {item.value}
-                </div>
-                <div className="text-white/50 text-xs uppercase tracking-wide mt-1">
-                  {item.label}
-                </div>
-              </div>
-            </div>
-          ))}
         </motion.div>
       </div>
     </section>
