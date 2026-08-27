@@ -68,10 +68,10 @@ export default function About() {
             <MaskReveal delay={0.05}>Local hands, real accountability.</MaskReveal>
           </h2>
           <p className="text-white/70 text-lg leading-relaxed mb-4">
-            Harbor Master Marine is Josh Pennino, fixing 12-volt electrical
-            systems on boats across Dunedin and Pinellas County. Not a
-            full-service shop, a specialist who comes to your boat and
-            treats it like his own.
+            Harbor Master Marine is locally owned by Josh Pennino, fixing
+            12-volt electrical systems on boats across Dunedin and
+            Pinellas County. Not a full-service shop, a specialist who
+            comes to your boat and treats it like his own.
           </p>
           <p className="text-white/70 text-lg leading-relaxed">
             Every job gets a straight diagnosis and an honest read on

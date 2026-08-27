@@ -86,9 +86,9 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.25 }}
           className="text-white/70 text-lg mt-7 max-w-xl"
         >
-          Wiring, batteries, starters, and marine electronics, diagnosed and
-          fixed on your boat. No hauling to a shop, no guesswork, no
-          upsells.
+          12-volt wiring, batteries, starters, electronics, and
+          troubleshooting, serviced right at your boat. No hauling to a
+          shop, no guesswork, no upsells.
         </motion.p>
         <motion.div
           initial={initial ?? { opacity: 0, y: 18 }}
@@ -100,7 +100,7 @@ export default function Hero() {
             href="#contact"
             className="inline-flex items-center gap-2 rounded-lg bg-brass hover:bg-brass-light text-white font-medium px-7 py-3.5 transition-all duration-300 hover:shadow-[0_0_28px_-4px_rgba(59,107,234,0.65)]"
           >
-            Get a Repair Estimate
+            Request Electrical Service
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M5 12h14M13 6l6 6-6 6" />
             </svg>
