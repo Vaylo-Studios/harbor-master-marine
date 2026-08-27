@@ -40,7 +40,7 @@ export default function ServiceArea() {
             <p className="text-gulf text-sm uppercase tracking-[0.2em] mb-3">
               <MaskReveal>Where We Work</MaskReveal>
             </p>
-            <h2 className="font-display text-4xl sm:text-5xl text-text-primary mb-6 leading-[1.1] whitespace-nowrap">
+            <h2 className="font-display text-4xl sm:text-5xl text-text-primary mb-6 leading-[1.1]">
               <MaskReveal delay={0.05}>
                 Serving boaters across
                 <br />

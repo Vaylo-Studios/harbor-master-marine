@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${fraunces.variable} antialiased`}>
+      <body className={`${inter.variable} ${fraunces.variable} antialiased overflow-x-hidden`}>
         {children}
       </body>
     </html>
