@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   title: "Harbor Master Marine | Boat Repair, Dunedin & Pinellas County",
   description:
     "Full-service boat repair and marine maintenance serving Dunedin and Pinellas County. Engine service, hull repair, electrical, and haul-outs from a crew that knows the water.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function RootLayout({

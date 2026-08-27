@@ -92,7 +92,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-6xl px-6 py-3.5 text-sm flex flex-col sm:flex-row justify-between gap-2">
           <span>&copy; {new Date().getFullYear()} Harbor Master Marine. All rights reserved.</span>
-          <span>Site by Vaylo Studios</span>
+          <span>Concept preview by Vaylo Studios</span>
         </div>
       </div>
     </footer>
