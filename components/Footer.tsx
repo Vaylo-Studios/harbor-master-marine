@@ -34,7 +34,7 @@ export default function Footer() {
     <footer className="bg-navy-deep text-white/60 border-t border-white/10">
       <div className="mx-auto max-w-6xl px-6 py-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr] lg:divide-x lg:divide-white/15">
         <div className="max-w-sm">
-          <LogoFull className="h-[215px] -ml-1 -my-9 mb-0" />
+          <LogoFull className="h-[150px] -my-6 sm:h-[190px] sm:-my-8 lg:h-[215px] lg:-my-9 -ml-1 mb-0" />
           <p className="text-base leading-relaxed">
             Full-service boat repair and maintenance, based in Dunedin,
             serving Pinellas County.

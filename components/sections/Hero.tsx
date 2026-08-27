@@ -19,7 +19,7 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="top"
-      className="relative min-h-[94vh] flex items-center overflow-hidden bg-navy-deep"
+      className="relative min-h-[94vh] flex items-end sm:items-center overflow-hidden bg-navy-deep"
     >
       <motion.div
         style={reduceMotion ? undefined : { y: mediaY }}
@@ -68,7 +68,7 @@ export default function Hero() {
         />
       </svg>
 
-      <div className="relative z-10 mx-auto max-w-6xl px-6 pb-20 pt-28 w-full">
+      <div className="relative z-10 mx-auto max-w-6xl px-6 pb-14 pt-8 sm:pb-20 sm:pt-28 w-full">
         <motion.p
           initial={initial ?? { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
