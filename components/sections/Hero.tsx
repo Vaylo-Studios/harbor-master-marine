@@ -23,7 +23,7 @@ export default function Hero() {
     >
       <motion.div
         style={reduceMotion ? undefined : { y: mediaY }}
-        className="absolute inset-0 scale-[1.22]"
+        className="absolute inset-0 scale-[1.32] sm:scale-[1.22]"
       >
         {reduceMotion ? (
           <Image
@@ -32,7 +32,7 @@ export default function Hero() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[86%_42%] contrast-[1.18] saturate-[1.15] brightness-[0.94]"
+            className="object-cover object-[95%_47%] sm:object-[86%_42%] contrast-[1.18] saturate-[1.15] brightness-[0.94]"
           />
         ) : (
           <motion.video
@@ -43,7 +43,7 @@ export default function Hero() {
             poster="/images/hero-boat.png"
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute inset-0 w-full h-full object-cover object-[86%_42%] contrast-[1.18] saturate-[1.15] brightness-[0.94]"
+            className="absolute inset-0 w-full h-full object-cover object-[95%_47%] sm:object-[86%_42%] contrast-[1.18] saturate-[1.15] brightness-[0.94]"
           >
             <source src="/videos/hero-boat.mp4" type="video/mp4" />
           </motion.video>
