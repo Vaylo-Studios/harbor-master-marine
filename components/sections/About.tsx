@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Reveal from "@/components/Reveal";
+import MaskReveal from "@/components/MaskReveal";
 
 const BADGES = [
   {
@@ -33,7 +34,18 @@ export default function About() {
 
   return (
     <section id="about" className="bg-navy py-28 relative overflow-hidden">
-      <div className="relative mx-auto max-w-6xl px-6 grid lg:grid-cols-[1.15fr_1fr] gap-16 items-center">
+      <svg
+        className="absolute bottom-0 left-0 right-0 w-full h-16 sm:h-24"
+        viewBox="0 0 1440 100"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M0 56c140-24 260-32 380-20s240 30 360 26 260-22 380-14 240 22 300 10V100H0Z"
+          fill="var(--color-background)"
+        />
+      </svg>
+      <div className="relative mx-auto max-w-6xl px-6 grid lg:grid-cols-[3fr_4fr] gap-16 items-center">
         <Reveal>
           <div ref={photoRef} className="aspect-[4/5] lg:aspect-[3/4] rounded-2xl border border-white/10 relative overflow-hidden">
             <motion.div style={{ y }} className="absolute inset-[-6%]">
@@ -41,7 +53,7 @@ export default function About() {
                 src="/images/about-technician.png"
                 alt="Harbor Master Marine technician servicing an outboard engine at the dock"
                 fill
-                sizes="(min-width: 1024px) 55vw, 100vw"
+                sizes="(min-width: 1024px) 45vw, 100vw"
                 className="object-cover"
               />
             </motion.div>
@@ -50,10 +62,10 @@ export default function About() {
         </Reveal>
         <Reveal delay={0.1}>
           <p className="text-brass-light text-sm uppercase tracking-[0.2em] mb-3">
-            Who We Are
+            <MaskReveal>Who We Are</MaskReveal>
           </p>
           <h2 className="font-display text-4xl sm:text-5xl text-white mb-6">
-            Local hands, real accountability.
+            <MaskReveal delay={0.05}>Local hands, real accountability.</MaskReveal>
           </h2>
           <p className="text-white/70 leading-relaxed mb-4">
             Harbor Master Marine has been keeping boats in Dunedin and the
@@ -67,13 +79,20 @@ export default function About() {
             no guesswork.
           </p>
 
-          <div className="mt-10 pt-8 border-t border-white/10 divide-y divide-white/10">
-            {BADGES.map((b) => (
-              <div key={b.label} className="flex items-start gap-4 py-4 first:pt-0 last:pb-0">
-                <div className="w-11 h-11 shrink-0 rounded-full border border-brass-light/40 flex items-center justify-center">
+          <div className="mt-10 pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+            {BADGES.map((b, i) => (
+              <motion.div
+                key={b.label}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.55, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
+                className="py-5 sm:py-0 sm:px-6 first:sm:pl-0 last:sm:pr-0"
+              >
+                <div className="w-14 h-14 rounded-full border border-brass-light/40 flex items-center justify-center mb-4">
                   <svg
-                    width="20"
-                    height="20"
+                    width="26"
+                    height="26"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -86,13 +105,11 @@ export default function About() {
                     {b.icon}
                   </svg>
                 </div>
-                <div>
-                  <div className="text-white text-sm font-medium">{b.label}</div>
-                  <p className="text-white/50 text-xs leading-relaxed mt-1">
-                    {b.detail}
-                  </p>
-                </div>
-              </div>
+                <div className="text-white text-sm font-medium">{b.label}</div>
+                <p className="text-white/50 text-xs leading-relaxed mt-2">
+                  {b.detail}
+                </p>
+              </motion.div>
             ))}
           </div>
         </Reveal>

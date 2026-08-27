@@ -32,34 +32,34 @@ const SOCIALS = [
 export default function Footer() {
   return (
     <footer className="bg-navy-deep text-white/60 border-t border-white/10">
-      <div className="mx-auto max-w-6xl px-6 py-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
+      <div className="mx-auto max-w-6xl px-6 py-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr] lg:divide-x lg:divide-white/10">
         <div className="max-w-sm">
-          <LogoFull className="h-24 -ml-1 mb-4" />
+          <LogoFull className="h-[115px] -ml-1 mb-4" />
           <p className="text-sm leading-relaxed">
             Full-service boat repair and maintenance, based in Dunedin,
             serving Pinellas County.
           </p>
         </div>
 
-        <div>
+        <div className="lg:pl-10">
           <div className="text-xs uppercase tracking-[0.2em] text-white/35 mb-4">
             Contact
           </div>
-          <div className="text-sm space-y-2.5">
-            <div>Dunedin, FL</div>
-            <a href="tel:+17277762316" className="hover:text-white transition-colors block">
+          <div className="text-base space-y-3">
+            <div className="text-white/80">Dunedin, FL</div>
+            <a href="tel:+17277762316" className="text-white/80 hover:text-white transition-colors block font-medium">
               (727) 776-2316
             </a>
             <a
               href="mailto:service@harbormastermarine.com"
-              className="hover:text-white transition-colors block"
+              className="text-white/80 hover:text-white transition-colors block"
             >
               service@harbormastermarine.com
             </a>
           </div>
         </div>
 
-        <div>
+        <div className="lg:pl-10">
           <div className="text-xs uppercase tracking-[0.2em] text-white/35 mb-4">
             Follow Us
           </div>

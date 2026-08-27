@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import Reveal from "@/components/Reveal";
+import MaskReveal from "@/components/MaskReveal";
 
 const CITIES = [
   { name: "Dunedin", home: true, x: 46.7, y: 37.1 },
@@ -21,15 +22,26 @@ export default function ServiceArea() {
   const [active, setActive] = useState<string | null>(null);
 
   return (
-    <section id="area" className="bg-background py-28">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section id="area" className="relative bg-background py-20 overflow-hidden">
+      <svg
+        className="absolute bottom-0 left-0 right-0 w-full h-16 sm:h-24"
+        viewBox="0 0 1440 100"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M0 52c150-26 270-34 390-22s240 30 360 26 260-22 380-14 240 22 300 10V100H0Z"
+          fill="var(--color-navy-deep)"
+        />
+      </svg>
+      <div className="relative mx-auto max-w-6xl px-6">
+        <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-16 items-center">
           <Reveal>
             <p className="text-gulf text-sm uppercase tracking-[0.2em] mb-3">
-              Where We Work
+              <MaskReveal>Where We Work</MaskReveal>
             </p>
             <h2 className="font-display text-4xl sm:text-5xl text-text-primary mb-6">
-              Serving boaters across Pinellas County.
+              <MaskReveal delay={0.05}>Serving boaters across Pinellas County.</MaskReveal>
             </h2>
             <p className="text-text-secondary leading-relaxed mb-8 max-w-md">
               Based in Dunedin, we service marinas, docks, and boatyards
@@ -65,14 +77,49 @@ export default function ServiceArea() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="aspect-square rounded-2xl border border-border relative overflow-hidden bg-navy-deep">
+            <div className="aspect-square rounded-2xl border border-border relative overflow-hidden bg-navy-deep lg:-mr-10 xl:-mr-24 lg:scale-[1.08] lg:origin-left">
               <Image
                 src="/images/service-area-map.png"
                 alt="Nautical map of Pinellas County service area, hubbed from Dunedin"
                 fill
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
+                sizes="(min-width: 1024px) 55vw, 100vw"
+                className="object-cover contrast-[1.12] saturate-[1.18] brightness-[1.04]"
               />
+
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    "radial-gradient(45% 45% at 46.7% 37.1%, rgba(59,107,234,0.16) 0%, transparent 70%)",
+                }}
+              />
+
+              {CITIES.map((city) => (
+                <div
+                  key={`${city.name}-base`}
+                  className="absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                  style={{ left: `${city.x}%`, top: `${city.y}%` }}
+                >
+                  {city.home ? (
+                    <>
+                      <motion.div
+                        animate={{ scale: [1, 1.9, 1], opacity: [0.55, 0, 0.55] }}
+                        transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute inset-0 m-auto w-4 h-4 rounded-full bg-gulf-light/50"
+                      />
+                      <div className="w-4 h-4 rounded-full bg-white shadow-[0_0_18px_5px_rgba(109,149,245,0.85)] border-2 border-gulf" />
+                    </>
+                  ) : (
+                    <motion.div
+                      initial={{ scale: 0, opacity: 0 }}
+                      whileInView={{ scale: [0, 1.6, 1], opacity: [0, 0.9, 1] }}
+                      viewport={{ once: true, margin: "-40px" }}
+                      transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                      className="w-2.5 h-2.5 rounded-full bg-white/80 shadow-[0_0_8px_2px_rgba(255,255,255,0.4)]"
+                    />
+                  )}
+                </div>
+              ))}
 
               {CITIES.map((city) => (
                 <AnimatePresence key={city.name}>
@@ -85,8 +132,8 @@ export default function ServiceArea() {
                       className="absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none"
                       style={{ left: `${city.x}%`, top: `${city.y}%` }}
                     >
-                      <div className="w-9 h-9 rounded-full bg-gulf-light/30 blur-md" />
-                      <div className="absolute inset-0 m-auto w-3 h-3 rounded-full bg-white shadow-[0_0_16px_4px_rgba(109,149,245,0.8)]" />
+                      <div className="w-11 h-11 rounded-full bg-gulf-light/30 blur-md" />
+                      <div className="absolute inset-0 m-auto w-4 h-4 rounded-full bg-white shadow-[0_0_18px_5px_rgba(109,149,245,0.85)]" />
                     </motion.div>
                   )}
                 </AnimatePresence>

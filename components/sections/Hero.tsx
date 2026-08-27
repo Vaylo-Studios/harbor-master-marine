@@ -1,43 +1,95 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useInView, useReducedMotion, useScroll, useTransform } from "framer-motion";
+
+const STATS = [
+  { icon: <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z" />, value: "15+", label: "Years on the water" },
+  { icon: <path d="M3 17h2l2-5h10l2 5h2M6 12l2-6h8l2 6M8 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM16 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" />, value: "1,200+", label: "Boats serviced" },
+  { icon: <path d="M12 7v5l3.5 2M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z" />, value: "Same-week", label: "Most repairs" },
+];
+
+function StatValue({ value }: { value: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-40px" });
+  const match = value.match(/^([\d,]+)(\+?)$/);
+  const [display, setDisplay] = useState(match ? "0" : value);
+
+  useEffect(() => {
+    if (!match || !inView) return;
+    const target = parseInt(match[1].replace(/,/g, ""), 10);
+    const suffix = match[2];
+    const duration = 1300;
+    const start = performance.now();
+    let raf: number;
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setDisplay(Math.round(target * eased).toLocaleString() + suffix);
+      if (progress < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inView]);
+
+  return (
+    <div ref={ref} className="font-display text-white text-3xl sm:text-4xl leading-none">
+      {display}
+    </div>
+  );
+}
 
 export default function Hero() {
   const reduceMotion = useReducedMotion();
   const initial = reduceMotion ? false : undefined;
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const mediaY = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]);
 
   return (
     <section
+      ref={sectionRef}
       id="top"
-      className="relative min-h-[92vh] flex items-end overflow-hidden bg-navy-deep"
+      className="relative min-h-[94vh] flex items-center overflow-hidden bg-navy-deep"
     >
-      {reduceMotion ? (
-        <Image
-          src="/images/hero-boat.png"
-          alt="Center-console boat running across the water at dusk"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[78%_50%] contrast-[1.15] saturate-[1.12] brightness-[0.92]"
-        />
-      ) : (
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/images/hero-boat.png"
-          className="absolute inset-0 w-full h-full object-cover object-[78%_50%] contrast-[1.15] saturate-[1.12] brightness-[0.92]"
-        >
-          <source src="/videos/hero-boat.mp4" type="video/mp4" />
-        </video>
-      )}
+      <motion.div
+        style={reduceMotion ? undefined : { y: mediaY }}
+        className="absolute inset-0 scale-[1.12]"
+      >
+        {reduceMotion ? (
+          <Image
+            src="/images/hero-boat.png"
+            alt="Center-console boat running across the water at dusk"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[86%_42%] contrast-[1.18] saturate-[1.15] brightness-[0.94]"
+          />
+        ) : (
+          <motion.video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/images/hero-boat.png"
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute inset-0 w-full h-full object-cover object-[86%_42%] contrast-[1.18] saturate-[1.15] brightness-[0.94]"
+          >
+            <source src="/videos/hero-boat.mp4" type="video/mp4" />
+          </motion.video>
+        )}
+      </motion.div>
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(90deg, #071722 0%, #071722 22%, rgba(7,23,34,0.92) 40%, rgba(7,23,34,0.5) 62%, rgba(7,23,34,0.12) 82%, transparent 100%), linear-gradient(180deg, rgba(7,23,34,0.6) 0%, transparent 26%, transparent 55%, #071722 100%)",
+            "linear-gradient(90deg, #071722 0%, #071722 20%, rgba(7,23,34,0.92) 38%, rgba(7,23,34,0.5) 60%, rgba(7,23,34,0.1) 80%, transparent 100%), linear-gradient(180deg, rgba(7,23,34,0.55) 0%, transparent 24%, transparent 58%, #071722 100%)",
         }}
       />
       <svg
@@ -52,7 +104,7 @@ export default function Hero() {
         />
       </svg>
 
-      <div className="relative z-10 mx-auto max-w-6xl px-6 pb-24 pt-40 w-full">
+      <div className="relative z-10 mx-auto max-w-6xl px-6 pb-16 pt-24 w-full">
         <motion.p
           initial={initial ?? { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -87,7 +139,7 @@ export default function Hero() {
         >
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-brass hover:bg-brass-light text-white font-medium px-7 py-3.5 transition-colors"
+            className="inline-flex items-center gap-2 rounded-lg bg-brass hover:bg-brass-light text-white font-medium px-7 py-3.5 transition-all duration-300 hover:shadow-[0_0_28px_-4px_rgba(59,107,234,0.65)]"
           >
             Get a Repair Estimate
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -106,20 +158,16 @@ export default function Hero() {
           initial={initial ?? { opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
-          className="grid grid-cols-3 mt-20 max-w-lg rounded-2xl bg-white/8 backdrop-blur-md border border-white/15 divide-x divide-white/10 overflow-hidden"
+          className="grid grid-cols-3 mt-16 w-full lg:w-[75%] rounded-2xl bg-white/8 backdrop-blur-md border border-white/15 divide-x divide-white/10 overflow-hidden"
         >
-          {[
-            { icon: <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z" />, value: "15+", label: "Years on the water" },
-            { icon: <path d="M3 17h2l2-5h10l2 5h2M6 12l2-6h8l2 6M8 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM16 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" />, value: "1,200+", label: "Boats serviced" },
-            { icon: <path d="M12 7v5l3.5 2M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z" />, value: "Same-week", label: "Most repairs" },
-          ].map((stat) => (
-            <div key={stat.label} className="flex items-center gap-3 px-5 py-5">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-brass-light shrink-0" aria-hidden="true">
+          {STATS.map((stat) => (
+            <div key={stat.label} className="flex items-center gap-4 px-6 sm:px-8 py-7">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-brass-light shrink-0" aria-hidden="true">
                 {stat.icon}
               </svg>
               <div>
-                <div className="font-display text-white text-xl leading-none">{stat.value}</div>
-                <div className="text-white/50 text-[11px] uppercase tracking-wide mt-1.5">
+                <StatValue value={stat.value} />
+                <div className="text-white/50 text-xs uppercase tracking-wide mt-1.5">
                   {stat.label}
                 </div>
               </div>
