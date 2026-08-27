@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Logo from "@/components/Logo";
 
 const LINKS = [
   { label: "Services", href: "#services" },
@@ -38,12 +39,15 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto max-w-6xl px-6 flex items-center justify-between h-18 py-4">
-        <a href="#top" className="flex items-center gap-2">
-          <span className="font-display text-lg tracking-wide text-white">
-            HARBOR MASTER
-          </span>
-          <span className="text-xs uppercase tracking-[0.2em] text-brass-light">
-            Marine
+        <a href="#top" className="flex items-center gap-3">
+          <Logo className="w-9 h-9 text-gulf-light shrink-0" />
+          <span className="flex flex-col leading-none">
+            <span className="font-display text-lg tracking-wide text-white">
+              HARBOR MASTER
+            </span>
+            <span className="text-xs uppercase tracking-[0.2em] text-brass-light mt-0.5">
+              Marine
+            </span>
           </span>
         </a>
         <nav className="hidden md:flex items-center gap-8">

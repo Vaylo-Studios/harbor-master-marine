@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 
 export default function Hero() {
@@ -11,18 +12,19 @@ export default function Hero() {
       id="top"
       className="relative min-h-[92vh] flex items-end overflow-hidden bg-navy-deep"
     >
+      <Image
+        src="/images/hero-boat.png"
+        alt="Center-console boat running across the water at dusk"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-[70%_50%]"
+      />
       <div
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 90% 60% at 50% 0%, rgba(47,124,140,0.35), transparent 60%), linear-gradient(180deg, #071722 0%, #0b2233 55%, #10202b 100%)",
-        }}
-      />
-      <div
-        className="absolute inset-0 opacity-[0.07]"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(115deg, #ffffff 0px, #ffffff 1px, transparent 1px, transparent 64px)",
+            "linear-gradient(90deg, #071722 0%, rgba(7,23,34,0.88) 32%, rgba(7,23,34,0.35) 60%, transparent 85%), linear-gradient(180deg, rgba(7,23,34,0.55) 0%, transparent 30%, transparent 60%, #071722 100%)",
         }}
       />
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-navy-deep to-transparent" />

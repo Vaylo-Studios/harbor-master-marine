@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Reveal from "@/components/Reveal";
 
 export default function About() {
@@ -5,8 +6,15 @@ export default function About() {
     <section id="about" className="bg-navy py-28 relative overflow-hidden">
       <div className="relative mx-auto max-w-6xl px-6 grid lg:grid-cols-2 gap-16 items-center">
         <Reveal>
-          <div className="aspect-[4/5] rounded-2xl bg-gradient-to-br from-steel to-navy-deep border border-white/10 flex items-center justify-center">
-            <span className="font-display text-white/20 text-8xl">HM</span>
+          <div className="aspect-[4/5] rounded-2xl border border-white/10 relative overflow-hidden">
+            <Image
+              src="/images/about-technician.png"
+              alt="Harbor Master Marine technician servicing an outboard engine at the dock"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/50 via-transparent to-transparent" />
           </div>
         </Reveal>
         <Reveal delay={0.1}>
