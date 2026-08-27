@@ -8,8 +8,8 @@ import MaskReveal from "@/components/MaskReveal";
 
 const BADGES = [
   {
-    label: "Certified Technicians",
-    detail: "ABYC-trained, factory-certified across major engine brands.",
+    label: "Local Technicians",
+    detail: "Hands-on marine electrical and battery work from a crew that boats these waters too.",
     icon: <path d="M12 3l7 3v5c0 4.4-3 8.4-7 9.5-4-1.1-7-5.1-7-9.5V6l7-3Z" />,
   },
   {
@@ -18,8 +18,8 @@ const BADGES = [
     icon: <path d="M7 3h7l4 4v14H7V3Zm7 0v4h4M9 12h6M9 16h6" />,
   },
   {
-    label: "Fast Turnaround",
-    detail: "Most repairs completed within the week, not the month.",
+    label: "Straight Answers",
+    detail: "A real diagnosis and a real timeline, no upsells, no guesswork.",
     icon: <path d="M12 7v5l3.5 2M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z" />,
   },
 ];
@@ -68,10 +68,10 @@ export default function About() {
             <MaskReveal delay={0.05}>Local hands, real accountability.</MaskReveal>
           </h2>
           <p className="text-white/70 text-lg leading-relaxed mb-4">
-            Harbor Master Marine has been keeping boats in Dunedin and the
-            surrounding Pinellas County waters running right for over 15
-            years. We&apos;re not a franchise, we&apos;re a crew of
-            certified marine technicians who live and boat here too.
+            Harbor Master Marine keeps boats in Dunedin and the surrounding
+            Pinellas County waters running right. We&apos;re not a
+            franchise, we&apos;re a crew of marine technicians who live and
+            boat here too.
           </p>
           <p className="text-white/70 text-lg leading-relaxed">
             Every job gets a straight diagnosis, a real timeline, and a

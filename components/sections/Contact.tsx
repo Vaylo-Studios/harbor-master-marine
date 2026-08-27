@@ -35,8 +35,8 @@ export default function Contact() {
             Tell us what&apos;s wrong. We&apos;ll tell you what it takes.
           </h2>
           <p className="text-white/70 text-lg mb-10 max-w-xl mx-auto">
-            Call, email, or drop by the shop in Dunedin. Most estimates
-            turned around within one business day.
+            Call or drop by the shop in Dunedin. Straight answers, no
+            guesswork.
           </p>
         </Reveal>
         <Reveal delay={0.1}>
@@ -51,13 +51,15 @@ export default function Contact() {
               Call (727) 776-2316
             </motion.a>
             <motion.a
-              href="mailto:service@harbormastermarine.com"
+              href="https://maps.google.com/?q=1160+Idlewild+Dr+N,+Dunedin,+FL+34698"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
               className="rounded-lg border border-white/25 hover:bg-white/10 text-white font-medium text-xl px-11 py-6 transition-[background-color,border-color,box-shadow] duration-300 hover:border-white/50 hover:shadow-[0_0_26px_-6px_rgba(255,255,255,0.4)]"
             >
-              Email the Shop
+              Get Directions
             </motion.a>
           </div>
         </Reveal>

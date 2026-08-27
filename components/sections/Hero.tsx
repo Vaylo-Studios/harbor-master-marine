@@ -6,9 +6,9 @@ import { motion, useInView, useReducedMotion, useScroll, useTransform } from "fr
 import MaskReveal from "@/components/MaskReveal";
 
 const STATS = [
-  { icon: <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z" />, value: "15+", label: "Years on the water" },
-  { icon: <path d="M3 17h2l2-5h10l2 5h2M6 12l2-6h8l2 6M8 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM16 20a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" />, value: "1,200+", label: "Boats serviced" },
-  { icon: <path d="M12 7v5l3.5 2M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z" />, value: "Same-week", label: "Most repairs" },
+  { icon: <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z" />, value: "Dunedin, FL", label: "Proudly local" },
+  { icon: <path d="M13 3 5 13h5l-1 8 8-10h-5l1-8Z" />, value: "Electrical & Batteries", label: "Our specialty" },
+  { icon: <path d="M12 21s-7-6.1-7-11a7 7 0 1 1 14 0c0 4.9-7 11-7 11ZM12 13a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />, value: "1160 Idlewild Dr N", label: "Find us" },
 ];
 
 function StatValue({ value }: { value: string }) {

@@ -46,15 +46,9 @@ export default function Footer() {
             Contact
           </div>
           <div className="text-xl space-y-3">
-            <div className="text-white/80">Dunedin, FL</div>
+            <div className="text-white/80">1160 Idlewild Dr N<br />Dunedin, FL 34698</div>
             <a href="tel:+17277762316" className="text-white/80 hover:text-white transition-colors block font-medium">
               (727) 776-2316
-            </a>
-            <a
-              href="mailto:service@harbormastermarine.com"
-              className="text-white/80 hover:text-white transition-colors block"
-            >
-              service@harbormastermarine.com
             </a>
           </div>
         </div>
