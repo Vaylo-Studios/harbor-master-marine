@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f9fa;
+  --surface: #ffffff;
+  --surface-elevated: #eef2f4;
+  --border: #dbe3e7;
+  --border-hover: #c3cfd5;
+  --navy: #0b2233;
+  --navy-deep: #071722;
+  --steel: #1f3a4d;
+  --gulf: #2f7c8c;
+  --gulf-light: #4fa5b5;
+  --brass: #b8863f;
+  --brass-light: #d9ab6a;
+  --white: #ffffff;
+  --charcoal: #10202b;
+  --text-primary: #0e1f2b;
+  --text-secondary: #4c6270;
+  --text-muted: #8399a6;
+  --text-inverse: #f4f8f9;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-steel: var(--steel);
+  --color-gulf: var(--gulf);
+  --color-gulf-light: var(--gulf-light);
+  --color-brass: var(--brass);
+  --color-brass-light: var(--brass-light);
+  --color-white: var(--white);
+  --color-charcoal: var(--charcoal);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-inverse: var(--text-inverse);
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-inter);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gulf-light);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
