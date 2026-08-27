@@ -12,14 +12,27 @@ export default function Hero() {
       id="top"
       className="relative min-h-[92vh] flex items-end overflow-hidden bg-navy-deep"
     >
-      <Image
-        src="/images/hero-boat.png"
-        alt="Center-console boat running across the water at dusk"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-[70%_50%]"
-      />
+      {reduceMotion ? (
+        <Image
+          src="/images/hero-boat.png"
+          alt="Center-console boat running across the water at dusk"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[70%_50%]"
+        />
+      ) : (
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/images/hero-boat.png"
+          className="absolute inset-0 w-full h-full object-cover object-[70%_50%]"
+        >
+          <source src="/videos/hero-boat.mp4" type="video/mp4" />
+        </video>
+      )}
       <div
         className="absolute inset-0"
         style={{
